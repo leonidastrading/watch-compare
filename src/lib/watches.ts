@@ -15,9 +15,18 @@ export type Watch = {
   powerReserveH: number;
   waterResistanceM: number;
   introduced: number;
-  dial: string;
-  bezel: string;
   blurb: string;
+  photo: Photo;
+};
+
+export type Photo = {
+  src: string;
+  /** Wikimedia Commons file page. */
+  source: string;
+  credit: string;
+  license: string;
+  /** Set when the photo shows a sibling reference rather than the exact one. */
+  pictured?: string;
 };
 
 // Prices are rounded estimates for orientation only; check an authorized
@@ -37,9 +46,14 @@ export const WATCHES: Watch[] = [
     powerReserveH: 70,
     waterResistanceM: 300,
     introduced: 1953,
-    dial: "#111214",
-    bezel: "#1b1c1f",
     blurb: "The reference dive watch. Ceramic bezel, Glidelock clasp, strong resale.",
+    photo: {
+      src: "/watches/submariner.webp",
+      source: "https://commons.wikimedia.org/wiki/File:Rolex_Submariner_Professional.JPG",
+      credit: "Dr.K.",
+      license: "CC BY-SA 3.0",
+      pictured: "an earlier reference",
+    },
   },
   {
     id: "daytona",
@@ -55,9 +69,14 @@ export const WATCHES: Watch[] = [
     powerReserveH: 72,
     waterResistanceM: 100,
     introduced: 1963,
-    dial: "#f4f2ec",
-    bezel: "#121212",
     blurb: "The most waitlisted steel chronograph. Trades well above retail.",
+    photo: {
+      src: "/watches/daytona.webp",
+      source: "https://commons.wikimedia.org/wiki/File:RolexDaytona.jpg",
+      credit: "Lutherian",
+      license: "CC BY-SA 3.0",
+      pictured: "an earlier steel reference",
+    },
   },
   {
     id: "speedmaster",
@@ -73,9 +92,14 @@ export const WATCHES: Watch[] = [
     powerReserveH: 50,
     waterResistanceM: 50,
     introduced: 1957,
-    dial: "#0f0f10",
-    bezel: "#1a1a1a",
     blurb: "Flown to the Moon. Hand-wound, Master Chronometer, buyable at retail.",
+    photo: {
+      src: "/watches/speedmaster.webp",
+      source: "https://commons.wikimedia.org/wiki/File:OMEGA-Speedmaster-Professional-Front.jpg",
+      credit: "Torsten Bolten",
+      license: "Public domain",
+      pictured: "an earlier reference",
+    },
   },
   {
     id: "royal-oak",
@@ -91,9 +115,14 @@ export const WATCHES: Watch[] = [
     powerReserveH: 70,
     waterResistanceM: 50,
     introduced: 1972,
-    dial: "#24365a",
-    bezel: "#9aa0a8",
     blurb: "Gérald Genta's octagonal icon with the Grande Tapisserie dial.",
+    photo: {
+      src: "/watches/royal-oak.webp",
+      source: "https://commons.wikimedia.org/wiki/File:Audemars_Piguet_Royal_Oak_ref._15202.jpg",
+      credit: "OpaleHorse",
+      license: "CC BY-SA 4.0",
+      pictured: "ref. 15202 “Jumbo”",
+    },
   },
   {
     id: "nautilus",
@@ -109,9 +138,14 @@ export const WATCHES: Watch[] = [
     powerReserveH: 45,
     waterResistanceM: 120,
     introduced: 1976,
-    dial: "#2b4a6f",
-    bezel: "#c9ccd1",
     blurb: "Successor to the 5711. The grail of the integrated-bracelet sports watch.",
+    photo: {
+      src: "/watches/nautilus.webp",
+      source: "https://commons.wikimedia.org/wiki/File:Patek-Philippe-Nautilus-5711-1A-010-1.jpg",
+      credit: "Patek Philippe SA",
+      license: "CC BY-SA 4.0",
+      pictured: "ref. 5711/1A",
+    },
   },
 ];
 

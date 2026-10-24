@@ -11,3 +11,5 @@ npm run dev
 
 Watch data lives in `src/lib/watches.ts`. Prices are hand-entered estimates. The Trends graph
 uses Google's embed widget in the browser, because Google rate-limits server-side requests.
+Photos in `public/watches/` are from Wikimedia Commons; credits and licenses are in `watches.ts`
+and shown under each photo.

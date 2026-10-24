@@ -29,8 +29,8 @@
   --color-gain-bg: var(--gain-bg);
   --color-loss: var(--loss);
   --color-loss-bg: var(--loss-bg);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-jost);
+  --font-serif: var(--font-cormorant);
 }
 
 body {

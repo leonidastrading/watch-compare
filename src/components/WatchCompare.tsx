@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { PRICE_CEILING, WATCHES, formatUsd, premiumPct, type Watch } from "@/lib/watches";
 import TrendsChart, { trendsUrl } from "./TrendsChart";
-import WatchFace from "./WatchFace";
+import Image from "next/image";
 
 type Basis = "retail" | "market";
 type Sort = "price-asc" | "price-desc" | "premium" | "name";
@@ -91,7 +91,7 @@ export default function WatchCompare() {
       {/* Filters */}
       <section className="rounded-2xl border border-border bg-surface p-5 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="font-serif text-xl">Filter by price</h2>
+          <h2 className="font-serif text-2xl font-medium">Filter by price</h2>
           <div className="flex rounded-full border border-border p-1 text-sm">
             {(["retail", "market"] as const).map((b) => (
               <button
@@ -162,7 +162,7 @@ export default function WatchCompare() {
               return (
                 <article
                   key={w.id}
-                  className={`flex flex-col rounded-2xl border bg-surface p-5 transition ${
+                  className={`flex flex-col overflow-hidden rounded-2xl border bg-surface p-5 transition ${
                     on ? "border-accent/50" : "border-border opacity-70"
                   }`}
                 >
@@ -178,11 +178,26 @@ export default function WatchCompare() {
                       Compare
                     </label>
                   </div>
-                  <div className="my-4 flex justify-center">
-                    <WatchFace dial={w.dial} bezel={w.bezel} label={`${w.brand} ${w.model}`} />
-                  </div>
+                  <figure className="-mx-5 my-4">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-surface-2">
+                      <Image
+                        src={w.photo.src}
+                        alt={`${w.brand} ${w.model}`}
+                        fill
+                        sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover"
+                        priority={i < 3}
+                      />
+                    </div>
+                    <figcaption className="mt-1.5 px-5 text-[10px] leading-tight text-muted">
+                      {w.photo.pictured && <>Pictured: {w.photo.pictured} · </>}
+                      <a href={w.photo.source} target="_blank" rel="noreferrer" className="hover:text-ink-2">
+                        {w.photo.credit}, {w.photo.license}
+                      </a>
+                    </figcaption>
+                  </figure>
                   <p className="text-xs uppercase tracking-[0.2em] text-accent">{w.brand}</p>
-                  <h3 className="mt-1 font-serif text-lg leading-snug">{w.model}</h3>
+                  <h3 className="mt-1 font-serif text-2xl font-medium leading-tight">{w.model}</h3>
                   <p className="text-xs text-muted">Ref. {w.reference}</p>
                   <p className="mt-3 flex-1 text-sm text-ink-2">{w.blurb}</p>
                   <dl className="mt-4 grid grid-cols-2 gap-2 border-t border-border pt-4 text-sm">
@@ -213,7 +228,7 @@ export default function WatchCompare() {
       <section className="rounded-2xl border border-border bg-surface p-5 sm:p-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h2 className="font-serif text-xl">Google search interest</h2>
+            <h2 className="font-serif text-2xl font-medium">Google search interest</h2>
             <p className="text-sm text-muted">
               Google Trends for the watches you&apos;re comparing (100 = peak popularity).
             </p>
@@ -260,7 +275,7 @@ export default function WatchCompare() {
 
       {/* Spec table */}
       <section className="rounded-2xl border border-border bg-surface p-5 sm:p-6">
-        <h2 className="font-serif text-xl">Side by side</h2>
+        <h2 className="font-serif text-2xl font-medium">Side by side</h2>
         {compared.length === 0 ? (
           <p className="py-10 text-center text-sm text-muted">Tick “Compare” on a watch to add it here.</p>
         ) : (
@@ -272,7 +287,7 @@ export default function WatchCompare() {
                   {compared.map((w) => (
                     <th key={w.id} className="py-2 pr-4 align-bottom font-normal">
                       <span className="block text-xs uppercase tracking-widest text-accent">{w.brand}</span>
-                      <span className="font-serif text-base">{w.model}</span>
+                      <span className="font-serif text-lg font-medium">{w.model}</span>
                     </th>
                   ))}
                 </tr>
