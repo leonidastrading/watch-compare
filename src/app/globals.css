@@ -7,8 +7,8 @@
   --surface-2: #1d1d1a;
   --border: rgba(255, 255, 255, 0.09);
   --ink: #f2efe7;
-  --ink-2: #c6c2b4;
-  --muted: #8b877c;
+  --ink-2: #dcd8cb;
+  --muted: #aaa598;
   --accent: #d4b46a;
   --gain: #3fb59d;
   --gain-bg: rgba(63, 181, 157, 0.14);
@@ -33,7 +33,12 @@
   --font-serif: var(--font-cormorant);
 }
 
+html {
+  font-size: 112.5%;
+}
+
 body {
+  line-height: 1.6;
   background: var(--page);
   color: var(--ink);
 }

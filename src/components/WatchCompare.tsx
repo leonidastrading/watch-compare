@@ -166,7 +166,7 @@ export default function WatchCompare() {
                     on ? "border-accent/50" : "border-border opacity-70"
                   }`}
                 >
-                  <div className="flex items-start justify-between text-xs text-muted">
+                  <div className="flex items-start justify-between text-sm text-muted">
                     <span>#{i + 1}</span>
                     <label className="flex cursor-pointer items-center gap-1.5">
                       <input
@@ -189,29 +189,29 @@ export default function WatchCompare() {
                         priority={i < 3}
                       />
                     </div>
-                    <figcaption className="mt-1.5 px-5 text-[10px] leading-tight text-muted">
+                    <figcaption className="mt-1.5 px-5 text-xs leading-snug text-muted">
                       {w.photo.pictured && <>Pictured: {w.photo.pictured} · </>}
                       <a href={w.photo.source} target="_blank" rel="noreferrer" className="hover:text-ink-2">
                         {w.photo.credit}, {w.photo.license}
                       </a>
                     </figcaption>
                   </figure>
-                  <p className="text-xs uppercase tracking-[0.2em] text-accent">{w.brand}</p>
+                  <p className="text-sm uppercase tracking-[0.18em] text-accent">{w.brand}</p>
                   <h3 className="mt-1 font-serif text-2xl font-medium leading-tight">{w.model}</h3>
-                  <p className="text-xs text-muted">Ref. {w.reference}</p>
-                  <p className="mt-3 flex-1 text-sm text-ink-2">{w.blurb}</p>
-                  <dl className="mt-4 grid grid-cols-2 gap-2 border-t border-border pt-4 text-sm">
+                  <p className="text-sm text-muted">Ref. {w.reference}</p>
+                  <p className="mt-3 flex-1 text-base text-ink-2">{w.blurb}</p>
+                  <dl className="mt-4 grid grid-cols-2 gap-2 border-t border-border pt-4 text-lg">
                     <div>
-                      <dt className="text-xs text-muted">Retail</dt>
+                      <dt className="text-sm text-muted">Retail</dt>
                       <dd className={basis === "retail" ? "font-semibold" : ""}>{formatUsd(w.retail)}</dd>
                     </div>
                     <div>
-                      <dt className="text-xs text-muted">Market</dt>
+                      <dt className="text-sm text-muted">Market</dt>
                       <dd className={basis === "market" ? "font-semibold" : ""}>{formatUsd(w.market)}</dd>
                     </div>
                   </dl>
                   <span
-                    className={`mt-3 self-start rounded-full px-2 py-0.5 text-xs ${
+                    className={`mt-3 self-start rounded-full px-2.5 py-0.5 text-sm ${
                       prem >= 0 ? "bg-gain-bg text-gain" : "bg-loss-bg text-loss"
                     }`}
                   >
@@ -280,7 +280,7 @@ export default function WatchCompare() {
           <p className="py-10 text-center text-sm text-muted">Tick “Compare” on a watch to add it here.</p>
         ) : (
           <div className="mt-4 overflow-x-auto">
-            <table className="w-full min-w-[640px] text-sm">
+            <table className="w-full min-w-[720px] text-base">
               <thead>
                 <tr className="text-left">
                   <th className="w-40 py-2 pr-4 font-normal text-muted" />
